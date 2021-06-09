@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('stock');
-            $table->date('exp_date');
+            $table->date('exp_date')->nullable();
             $table->timestamps();
         });
     }
