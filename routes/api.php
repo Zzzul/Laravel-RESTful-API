@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\{RegisterController, LoginController, ProductController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Auth
+Route::post('login', LoginController::class)->name('login');
+Route::post('register', RegisterController::class)->name('register');
 
-Route::resource('product', ProductController::class)->except('create', 'edit');
+Route::apiResource('product', ProductController::class)->middleware('auth:sanctum');

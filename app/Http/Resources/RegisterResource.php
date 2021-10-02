@@ -4,9 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class RegisterResource extends JsonResource
 {
-    public static $wrap = 'product';
+    public static $wrap = 'user';
 
     /**
      * Transform the resource into an array.
@@ -18,12 +18,9 @@ class ProductResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'photo' => $this->photo,
             'name' => $this->name,
-            'category' => $this->category->name,
-            'price' => 'Rp. ' . number_format($this->price, 0, ',', '.'),
-            'stock' => $this->stock,
-            'exp_date' => $this->exp_date,
+            'email' => $this->email,
+            'email_verified_at' => $this->email_verified_at,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];
