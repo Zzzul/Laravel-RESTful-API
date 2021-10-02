@@ -26,11 +26,11 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'category_id' => 'required|numeric',
-            'photo' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+            'photo' => 'nullable|image|max:1024',
             'name' => 'required|string|min:4|max:191|unique:products,name',
             'price' => 'required|numeric|min:1',
             'stock' => 'required|numeric|min:1',
-            'exp_date'  => 'nullable|date|date_format:Y-m-d'
+            'exp_date'  => 'nullable|date'
         ];
     }
 }
